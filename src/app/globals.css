@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --red: #c44937;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #403D3D;
+    --foreground: #ede7e0;
+    --red: #c44937;
+  }
+}
+
+@font-face {
+  font-family: 'bakso_sapi';
+  src: url('/fonts/bakso_sapi.otf') format('opentype');
+  font-display: swap;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'bakso_sapi', Arial, Helvetica, sans-serif;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+

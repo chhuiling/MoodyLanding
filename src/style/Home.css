@@ -1,0 +1,42 @@
+.scroll-container {
+    position: relative;
+    height: 580vh;
+    overflow-x: hidden;
+}
+
+.section {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    will-change: transform;
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overflow-y-scroll {
+    scrollbar-color: rgba(64, 61, 61, 0.4) transparent;
+}
+
+.hero {
+    background-image: url("/images/bg_yellow.png");
+    z-index: 4;
+}
+
+.keyFeatures {
+    background-image: url("/images/bg_orange.png");
+    z-index: 2;
+}
+
+.faq {
+    background-image: url("/images/bg_red.png");
+    z-index: 1;
+}
+
+.contact {
+    z-index: 0;
+}
