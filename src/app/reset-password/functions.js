@@ -26,12 +26,20 @@ export async function sendVerifyToken ( token ) {
             method: "GET"
         });
 
-        const res = await response.json();
 
         if (response.ok) {
-            return response.status === 200 ? {status: true, msg: res.message} : {status: false, msg: res.message}
+            const data = await response.json();
+            return { status: true, msg: data.message };
+            } else {
+            const data = await response.json();
+            const error =
+                Array.isArray(data.errors) && data.errors.length > 0
+                ? data.errors[0].msg
+                : data?.message || `Registration failed (${response.status})`;
+
+            return { status: false, msg: error };
         }
-        return {status: false, msg: res.message || "Invalid token."}
+        
     } catch (error) {
         console.log(error)
         return {status: false, msg: "An error has ocurred."}
