@@ -27,11 +27,12 @@ export async function sendVerifyToken ( token ) {
         });
 
         if (response.ok) {
-            //const data = await response.json();
-            //return { status: true, msg: data.message };
-            return { status: true, msg: "yayaya" }
+            const data = await response.json();
+            return { status: true, msg: data.message };
 
             } else {
+                const result = await response.json().catch(() => null);
+                const errorMsg = result?.message || "Password reset token failed, please try again.";
                 /** 
             const data = await response.json();
             const error =
@@ -40,7 +41,7 @@ export async function sendVerifyToken ( token ) {
                 : data?.message || `failed (${response.status})`;
 
             return { status: false, msg: error };*/
-            return {status: false, msg: "era el json"}
+            return {status: false, msg: errorMsg}
         }
         
     } catch (error) {
