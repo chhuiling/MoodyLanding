@@ -33,6 +33,7 @@ export async function sendVerifyToken ( token ) {
         }
         return {status: false, msg: res.message || "Invalid token."}
     } catch (error) {
+        console.log(error)
         return {status: false, msg: "An error has ocurred."}
     }
 }
