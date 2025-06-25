@@ -50,14 +50,14 @@ export default function ResetPassword() {
     return (
         <section className="w-full h-screen flex flex-col items-center justify-center">
             <Image src={'/images/logo.png'} alt="logo" width={150} height={150} />
-            <p className="font-bold text-[var(--outer_space)]">{message}</p>
+            <p className="font-bold text-[var(--outer_space)] text-center">{message}</p>
 
             {tokenChecked ? (
                 <form onSubmit={formik.handleSubmit} className="w-1/2 flex flex-col justify-center">
                     <div className="text-left mb-6">
                         <label htmlFor="newPassword" className="text-xs block mb-1">NEW PASSWORD</label>
                         <input id="newPassword" name="newPassword" type="password"
-                            className="w-full px-4 py-1 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-red-400"
+                            className="font-sans w-full px-4 py-1 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-red-400"
                             onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.newPassword} />
                         {formik.touched.newPassword && formik.errors.newPassword && (
                             <p className="text-red-500 text-xs mt-1">{formik.errors.newPassword}</p>
@@ -67,7 +67,7 @@ export default function ResetPassword() {
                     <div className="text-left mb-6">
                         <label htmlFor="repeatPassword" className="text-xs block mb-1">REPEAT PASSWORD</label>
                         <input id="repeatPassword" name="repeatPassword" type="password"
-                            className="w-full px-4 py-1 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-red-400"
+                            className="font-sans w-full px-4 py-1 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-red-400"
                             onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.repeatPassword} />
                         {formik.touched.repeatPassword && formik.errors.repeatPassword && (
                             <p className="text-red-500 text-xs mt-1">{formik.errors.repeatPassword}</p>
