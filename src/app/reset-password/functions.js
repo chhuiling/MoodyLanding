@@ -30,7 +30,7 @@ export async function sendVerifyToken ( token ) {
             const res = await response.json()
             return response.status === 200 ? {status: true, msg: res.message} : {status: false, msg: res.message}
         }
-        return {status: false, msg: "Token expired."}
+        return {status: false, msg: response.error.message}
     } catch (error) {
         return {status: false, msg: "An error has ocurred."}
     }
