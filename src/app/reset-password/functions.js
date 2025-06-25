@@ -26,18 +26,21 @@ export async function sendVerifyToken ( token ) {
             method: "GET"
         });
 
-
         if (response.ok) {
-            const data = await response.json();
-            return { status: true, msg: data.message };
+            //const data = await response.json();
+            //return { status: true, msg: data.message };
+            return { status: true, msg: "yayaya" }
+
             } else {
+                /** 
             const data = await response.json();
             const error =
                 Array.isArray(data.errors) && data.errors.length > 0
                 ? data.errors[0].msg
-                : data?.message || `Registration failed (${response.status})`;
+                : data?.message || `failed (${response.status})`;
 
-            return { status: false, msg: error };
+            return { status: false, msg: error };*/
+            return {status: false, msg: "era el json"}
         }
         
     } catch (error) {
