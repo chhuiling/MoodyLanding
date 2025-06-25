@@ -32,7 +32,7 @@ export async function sendVerifyToken ( token ) {
 
             } else {
                 const result = await response.json().catch(() => null);
-                const errorMsg = result?.message || "Password reset token failed, please try again.";
+                const errorMsg = result?.message || response.status;
                 /** 
             const data = await response.json();
             const error =
