@@ -18,10 +18,8 @@ export default function ResetPassword() {
         validationSchema: Yup.object({
             newPassword: Yup.string()
                 .required("Password is required")
-                .matches(
-                    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/,
-                    "Password must contain at least one uppercase letter, one lowercase letter, and one number"
-                ),
+                .min(6, "Password has be between 6-20 long.")
+                .max(20, "Password has be between 6-20 long."),
             repeatPassword: Yup.string()
                 .required("Please confirm your password")
                 .oneOf([Yup.ref("newPassword")], "Passwords must match"),

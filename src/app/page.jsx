@@ -38,6 +38,9 @@ export default function Home() {
     const featuresTransform = `translateY(${-Math.max(0, scrollY - windowHeight) * 0.6}px)`;
     const faqTransform = `translateY(${-Math.max(0, scrollY - windowHeight * 2) * 0.3}px)`;
     const contactTransform = `translateY(${-Math.max(0, scrollY - windowHeight * 3) * 0.2}px)`;
+
+    const faqVisible = scrollY >= windowHeight * 1.9;
+    const contactVisible = scrollY >= windowHeight * 2.5;
     
     return (
         <section>
@@ -58,13 +61,13 @@ export default function Home() {
                 <div 
                     className="section faq" 
                     style={{ transform: faqTransform }}>
-                    <Faq/>
+                    <Faq visible={faqVisible}/>
                 </div>
                 
                 <div 
                     className="section contact"
                     style={{ transform: contactTransform }}>
-                    <Contact/>
+                    <Contact visible={contactVisible}/>
                 </div>
             </div>
         </section>

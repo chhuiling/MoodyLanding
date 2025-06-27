@@ -5,11 +5,14 @@ import '../style/Home.css'
 import { FaQuestionCircle } from "react-icons/fa";
 import Image from 'next/image';
 
-export default function Faq() {
+export default function Faq({ visible }) {
     const [expandedIndex, setExpandedIndex] = useState(null);
     const toggleCard = (index) => {
         setExpandedIndex(expandedIndex === index ? null: index)
     }
+
+    const delayClasses = ['delay-0', 'delay-200', 'delay-400', 'delay-600', 'delay-800'];
+
 
     return (
         <section className='flex flex-col items-center justify-center pr-4 pl-4'>
@@ -19,8 +22,10 @@ export default function Faq() {
                 {cards.map((card, index) => (
                     <div
                         key={index}
-                        className={`transition-all duration-300 ease-in-out ${expandedIndex === index ? 'w-full sm:w-1/2' : 'w-65'} h-80 bg-[#ede7e0] rounded-2xl flex flex-col relative p-4`}>
-                        <button onClick={() => { toggleCard(index); }}  className='flex justify-end' >
+                        className={`transition-all duration-700 ease-in-out h-80 bg-[#ede7e0] rounded-2xl flex flex-col relative p-4
+                            ${expandedIndex === index ? 'w-full sm:w-1/2' : 'w-65'} 
+                            ${visible ? `opacity-100 ${delayClasses[index]}` : 'opacity-0 delay-0'}`}>
+                        <button onClick={() => { toggleCard(index); }}  className='flex justify-end hover:cursor-pointer p-3 z-10' >
                             <FaQuestionCircle className='text-[#403D3D] text-2xl z-20' />
                         </button>
 
