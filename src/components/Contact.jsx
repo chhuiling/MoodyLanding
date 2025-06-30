@@ -1,12 +1,16 @@
+import Image from 'next/image'
+
 export default function({ visible }) {
     return (
-        <section className="w-full justify-center absolute -bottom-40 flex">
+        <section className="w-full justify-center items-center absolute -bottom-40 flex">
             
-            <div className="w-1/3 ml-50 flex flex-col justify-center items-center">
-                <p className="pb-10">how to download</p>
-                <p className={`w-100 border rounded-2xl text-center py-5 transition-opacity duration-700 ${
+            <div className="w-1/3 ml-50 mr-20 flex flex-col justify-center items-center">
+                <p>how to download</p>
+                <div className={`w-100 border rounded-2xl flex flex-col gap-2 justify-center items-center py-5 transition-opacity duration-700 ${
                     visible ? 'opacity-100 delay-600' : 'opacity-0 delay-0' }`} >
-                scan the qr code </p>
+                    <p>scan the qr code</p> 
+                    <Image src={"/images/moody_scan.png"} alt='scan' width={150} height={150} />
+                </div>
                 <div className={`w-px bg-[var(--foreground)] transition-all duration-700 ${
                     visible ? 'opacity-100 delay-900 h-10' : 'opacity-0 delay-0 h-0' }`}/>
                 <p className={`w-100 border rounded-2xl text-center py-5 transition-opacity duration-700 ${
@@ -24,7 +28,6 @@ export default function({ visible }) {
                     <source src="/video/tutorial.mp4"/>
                 </video>
             </div>
-            <div className="w-1/2"></div>
         </section>
     )
 }
